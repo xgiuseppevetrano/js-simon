@@ -24,9 +24,11 @@ setTimeout(function() {
     for (let i = 0; i < 5; i++) {
         do {
             askNumber = Number(prompt("Inserisci una alla volta i numeri che hai appena visto"))
-        } while (isNaN(difficultyLevel) || difficultyLevel < 1 || difficultyLevel > 100);
-        userNumber.push(askNumber);
+        } while (isNaN(askNumber) || askNumber < 1 || askNumber > 100);
+        if (pcNumber.includes(askNumber)) {
+            userNumber.push(askNumber);
+        }
     }
-}, 3000);
-
-// 3. Stampo in console quanti e quali numeri sono stati indovinati
+    // 3. Stampo in console quanti e quali numeri sono stati indovinati
+    console.log(`Hai indovinato ${userNumber.length} numeri (${userNumber})`);
+}, 30000);
